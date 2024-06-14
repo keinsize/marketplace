@@ -1,0 +1,46 @@
+.container {
+	@apply mt-4 flex flex-col items-center;
+
+	> .top {
+		@apply flex gap-[50px];
+
+		> .avatar {
+			@apply w-48 h-48;
+		}
+
+		.name {
+			@apply text-[32px] flex items-center;
+		}
+
+		.info {
+			@apply mb-2.5;
+		}
+
+		.shop {
+			@apply flex text-3xl items-center;
+
+			> a {
+				@apply text-2xl ml-2;
+			}
+		}
+	}
+
+	.fields {
+		@apply mt-10;
+
+		> .field {
+			> label {
+				@apply grid items-center gap-3 text-xl;
+				grid-template-columns: 1fr 3fr;
+
+				> span {
+					@apply text-white text-xl;
+				}
+			}
+		}
+	}
+
+	.logout {
+		@apply w-auto bg-transparent text-dark-text mt-2.5;
+	}
+}

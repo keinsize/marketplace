@@ -1,0 +1,23 @@
+.cartItem {
+	@apply flex h-[182px] gap-10 bg-[#252525] p-4 rounded-2xl cursor-pointer;
+
+	> img {
+		@apply min-w-[150px] block object-center object-scale-down h-auto max-h-full rounded-xl overflow-hidden bg-white;
+	}
+
+	> .info {
+		@apply flex items-start justify-between w-full;
+
+		> .name {
+			@apply text-xl truncate;
+		}
+
+		> .price {
+			@apply flex flex-col items-center gap-2.5 text-xl h-full justify-center;
+
+			> .oneProductPrice {
+				@apply text-dark-text text-sm;
+			}
+		}
+	}
+}

@@ -1,0 +1,46 @@
+.menu {
+	@apply mr-[50px] flex flex-row-reverse items-center;
+
+	> .balance {
+		@apply text-base font-bold px-[15px] py-[3px] rounded-xl mr-5;
+		background: linear-gradient(135deg, #db0184 0%, #227aff 100%);
+	}
+
+	> a:not(:first-child) {
+		@apply mr-2.5 relative p-1;
+
+		> svg {
+			@apply text-[32px];
+		}
+	}
+
+	> a:first-child {
+		@apply mr-0 ml-2.5;
+	}
+
+	> .profile {
+		@apply block rounded-2xl overflow-hidden h-10 w-10 relative;
+		> img {
+			@apply object-cover object-center;
+		}
+	}
+
+	> .loading {
+		&,
+		> span {
+			@apply flex flex-row-reverse items-center;
+
+			.circles {
+				@apply mr-2.5 rounded-2xl;
+
+				&:first-child {
+					@apply mr-0 ml-2.5;
+				}
+			}
+
+			.balance {
+				@apply mr-5 rounded-xl;
+			}
+		}
+	}
+}

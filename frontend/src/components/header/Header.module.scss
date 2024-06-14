@@ -1,0 +1,15 @@
+.header {
+	@apply flex justify-between py-1.5;
+
+	.left {
+		@apply flex;
+
+		> .logo {
+			@apply flex items-center mx-[50px];
+
+			> span {
+				@apply font-semibold text-2xl ml-[18px];
+			}
+		}
+	}
+}

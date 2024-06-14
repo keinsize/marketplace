@@ -1,0 +1,15 @@
+.wrapper {
+	@apply flex justify-center;
+
+	> form {
+		@apply bg-light-theme p-10 rounded-xl;
+
+		> h1 {
+			@apply text-center mb-4;
+		}
+
+		.buttons {
+			@apply flex gap-2.5;
+		}
+	}
+}

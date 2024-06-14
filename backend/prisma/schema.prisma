@@ -1,0 +1,144 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  name     String
+  email    String  @unique
+  password String
+  avatar String @default("/uploads/avatars/default.webp")
+  address  String  @default("")
+  balance  Float     @default(0)
+  isAdmin  Boolean @default(false)
+
+  cards            Card[]
+  shop             Shop?
+  reviews          Review[]
+  cart             CartItem[]
+  favoriteProducts Product[]  @relation("favorites")
+  myPurchases      Product[]  @relation("purchase")
+
+  @@map("user")
+}
+
+model CartItem {
+  id String @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  count Int @default(1)
+
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String @map("owner_id")
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId String  @map("product_id")
+
+  @@unique([ownerId, productId])
+  @@map("cart_item")
+}
+
+model Card {
+  id String @id @default(cuid())
+
+  paymentSystem PaymentSystems @map("payment_system")
+  number        Int            @unique
+  expiryDate    String         @map("expiry_date")
+  code          Int
+
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String
+
+  @@map("card")
+}
+
+model Shop {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  name         String
+  slug         String @unique
+  profit       Int    @default(0)
+  sales        Int    @default(0)
+  deliveryTime Int    @default(30) @map("delivery_time")
+
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String @unique @map("owner_id")
+
+  products Product[]
+
+  @@map("shop")
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  name        String
+  description String
+  images      String[]
+  price       Float
+  oldPrice    Float?       @map("old_price") 
+  countOpened Int @default(0) @map("count_opened")
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String   @map("category_id")
+
+  shop   Shop   @relation(fields: [shopId], references: [id])
+  shopId String @map("shop_id")
+
+  reviews        Review[]
+  inUsersCarts   CartItem[]
+  usersFavorites User[]     @relation("favorites")
+  usersPurchased User[]     @relation("purchase")
+
+  @@map("product")
+}
+
+model Category {
+  id String @id @default(cuid())
+
+  name String
+  slug String @unique
+
+  products Product[]
+
+  @@map("category")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  score   Int
+  comment String @default("")
+
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String @map("owner_id")
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId String  @map("product_id")
+
+  @@unique([ownerId, productId])
+  @@map("review")
+}
+
+enum PaymentSystems {
+  Maestro
+  Visa
+  MasterCard
+  Mir
+}

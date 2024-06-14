@@ -1,0 +1,11 @@
+.search {
+	@apply bg-light-theme rounded-2xl px-5 py-2.5 flex items-center w-full;
+
+	> button > svg {
+		@apply fill-primary ml-2 text-xl transition-colors cursor-pointer;
+	}
+
+	> input {
+		@apply text-white text-base leading-5 placeholder:text-dark-text w-full bg-transparent outline-none;
+	}
+}

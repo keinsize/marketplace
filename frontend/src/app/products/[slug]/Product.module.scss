@@ -1,0 +1,98 @@
+.container {
+	@apply mt-5;
+
+	> .main {
+		@apply flex justify-between;
+
+		> .left {
+			> .swiper {
+				@apply mt-5;
+			}
+		}
+
+		> .right {
+			@apply flex flex-col items-end;
+			> .favorites {
+				@apply flex items-center gap-2 font-light text-dark-text;
+
+				> svg {
+					@apply text-xl;
+				}
+			}
+
+			.info {
+				@apply mt-20 flex flex-col gap-2.5 min-w-60;
+
+				> .price {
+					@apply flex gap-2.5 items-start justify-end;
+
+					> .current {
+						@apply font-medium text-2xl;
+					}
+
+					> .old {
+						@apply line-through text-dark-text text-lg;
+					}
+
+					> .discount {
+						@apply bg-red px-2 rounded-lg;
+					}
+				}
+
+				> .addToCart {
+					@apply text-xl rounded-2xl py-1.5 my-2;
+				}
+
+				> .cartItem {
+					@apply my-2;
+				}
+
+				> .delivery {
+					@apply flex justify-between items-center text-lg;
+				}
+
+				> .shop {
+					@apply flex items-center text-xl gap-3 font-semibold mx-auto;
+
+					> svg {
+						@apply text-3xl;
+					}
+				}
+			}
+		}
+	}
+
+	> .other {
+		@apply mt-12;
+
+		> .headers {
+			@apply mb-2.5 flex  text-dark-text text-lg leading-5;
+
+			> button {
+				@apply px-2;
+
+				&.active {
+					@apply text-white;
+				}
+			}
+
+			> .score {
+				@apply flex ml-auto items-center justify-center	text-xl;
+
+				> span {
+					@apply text-lg leading-5 mr-2 text-white;
+				}
+			}
+		}
+
+		> .content {
+			> .description {
+				@apply text-lg font-light whitespace-pre-wrap;
+			}
+
+			> .reviews {
+				@apply flex flex-col gap-5 mt-5;
+			}
+		}
+	}
+}

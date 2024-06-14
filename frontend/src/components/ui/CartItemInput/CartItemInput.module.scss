@@ -1,0 +1,12 @@
+.field {
+	@apply flex items-center justify-around bg-light-theme py-2 px-4 rounded-2xl z-10;
+
+	> .minus,
+	> .plus {
+		@apply text-2xl cursor-pointer;
+	}
+
+	> .value {
+		@apply text-xl leading-6 mx-3;
+	}
+}

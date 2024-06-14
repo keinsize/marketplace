@@ -1,0 +1,29 @@
+.container {
+	@apply overflow-hidden relative  rounded-[36px];
+
+	> .field {
+		@apply h-full w-full relative;
+
+		&:hover {
+			> img {
+				@apply brightness-50 scale-110;
+			}
+			> label {
+				@apply opacity-100;
+			}
+		}
+
+		> img {
+			@apply transition-all object-center object-cover;
+			pointer-events: none;
+		}
+
+		> label {
+			@apply absolute transition-opacity opacity-0 cursor-pointer z-10 flex w-full h-full justify-center items-center;
+
+			> svg {
+				@apply h-8 w-8;
+			}
+		}
+	}
+}

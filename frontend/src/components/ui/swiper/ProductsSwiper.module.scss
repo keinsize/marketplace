@@ -1,0 +1,41 @@
+.swiper {
+	@apply flex;
+
+	> .main {
+		@apply h-[500px] w-[500px] overflow-hidden ml-5;
+
+		.slide {
+			@apply relative cursor-pointer flex justify-center items-center;
+
+			img {
+				@apply rounded-2xl;
+			}
+		}
+	}
+
+	> .gallery {
+		@apply mx-0 max-h-[495px];
+
+		> div {
+			@apply flex-col;
+		}
+
+		.slide {
+			@apply w-20 rounded-md overflow-hidden flex justify-center items-center mb-2.5 relative cursor-pointer opacity-40 transition-opacity;
+			height: 80px !important;
+
+			img {
+				@apply rounded-md;
+			}
+
+			&.slideActive {
+				@apply opacity-100;
+			}
+		}
+	}
+
+	img {
+		@apply block object-center object-scale-down h-auto max-h-full;
+		width: auto !important;
+	}
+}

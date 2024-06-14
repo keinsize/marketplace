@@ -1,0 +1,8 @@
+-- AlterTable
+ALTER TABLE "shop" ALTER COLUMN "profit" SET DEFAULT 0,
+ALTER COLUMN "sales" SET DEFAULT 0;
+
+-- AlterTable
+ALTER TABLE "user" ALTER COLUMN "address" SET DEFAULT '',
+ALTER COLUMN "balance" SET DEFAULT 0,
+ALTER COLUMN "isAdmin" SET DEFAULT false;

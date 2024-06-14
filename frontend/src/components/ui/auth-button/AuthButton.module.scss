@@ -1,0 +1,7 @@
+.auth {
+	@apply bg-primary text-secondary text-lg flex items-center px-5 py-1.5 rounded-2xl;
+
+	> svg {
+		@apply text-2xl mr-1;
+	}
+}

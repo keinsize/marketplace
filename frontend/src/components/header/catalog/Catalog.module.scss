@@ -1,0 +1,56 @@
+.catalog {
+	@apply relative flex items-center;
+
+	> button {
+		@apply flex items-center py-1.5 px-7 rounded-2xl bg-primary;
+
+		> span {
+			@apply text-xl ml-1.5 text-secondary;
+		}
+
+		.open {
+			> span {
+				@apply -rotate-45;
+			}
+
+			> span::before {
+				@apply rotate-90 top-0;
+			}
+
+			> span::after {
+				@apply opacity-0 top-0 rotate-90 w-0;
+			}
+		}
+	}
+
+	> .list {
+		@apply absolute rounded-2xl bg-light-theme w-[200%];
+		animation: fade 0.2s ease-in-out;
+		top: calc(100% + 5px);
+
+		> a {
+			@apply flex items-center py-2 px-6 text-lg relative;
+
+			&::after {
+				@apply absolute right-5 h-0 w-1 bg-transparent rounded-full;
+				content: '';
+				transition:
+					height 0.3s ease-in-out,
+					background-color 0.3s ease-in-out;
+			}
+
+			&:hover::after {
+				@apply bg-dark-text h-3/5;
+			}
+		}
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

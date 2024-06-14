@@ -1,0 +1,39 @@
+.item {
+	@apply w-[200px] h-[323px] p-2.5 pb-[15px] flex flex-col justify-between;
+
+	> .photo {
+		@apply h-[180px] w-[180px] object-scale-down object-center bg-white rounded-2xl;
+	}
+
+	> .name {
+		@apply text-base leading-5 line-clamp-2;
+	}
+
+	> .info {
+		@apply flex justify-end items-center my-[5px];
+
+		> .price {
+			@apply text-lg font-semibold my-[5px] max-w-[100px] truncate;
+		}
+
+		> .right {
+			@apply ml-2;
+
+			> .oldPrice {
+				@apply font-extralight line-through;
+			}
+		}
+	}
+
+	> .priceCenter {
+		@apply justify-center;
+
+		> .price {
+			@apply my-auto;
+		}
+	}
+
+	> .button {
+		@apply block rounded-lg w-full py-[3px] bg-primary text-center text-secondary;
+	}
+}

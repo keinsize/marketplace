@@ -1,0 +1,35 @@
+.container {
+	@apply flex flex-col gap-2.5;
+
+	> .header {
+		@apply flex items-center gap-5;
+
+		> svg {
+			@apply text-6xl;
+		}
+
+		.name {
+			@apply text-2xl font-bold;
+		}
+
+		> button {
+			@apply text-dark-text;
+		}
+
+		button {
+			@apply text-base;
+		}
+
+		> form {
+			@apply flex items-center gap-2.5;
+
+			> .name {
+				@apply mb-0 max-w-[200px];
+			}
+
+			button {
+				@apply text-lg;
+			}
+		}
+	}
+}

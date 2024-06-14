@@ -1,0 +1,23 @@
+.menu {
+	@apply h-6 w-6 relative;
+}
+.menu span,
+.menu span:before,
+.menu span:after {
+	@apply bg-secondary block h-[3px] opacity-100 absolute right-0 left-0 rounded;
+	transition: 0.3s ease-in-out;
+}
+.menu span:before,
+.menu span:after {
+	content: '';
+}
+
+.menu span {
+	top: calc(50% - 2px);
+}
+.menu span:before {
+	@apply top-[200%];
+}
+.menu span:after {
+	@apply -top-[200%];
+}
